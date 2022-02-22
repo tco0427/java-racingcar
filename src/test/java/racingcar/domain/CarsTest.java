@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +18,7 @@ class CarsTest {
 
     @BeforeEach
     void setUpCars() {
-        String[] carNames = {"dwoo","woo","te","ch"};
+        List<String> carNames = Arrays.asList(new String[]{"dwoo", "woo", "te", "ch"});
         cars = new Cars(carNames);
         size = cars.getSize();
         winnerPosition = 0;

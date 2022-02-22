@@ -3,7 +3,6 @@ package racingcar.domain;
 import racingcar.domain.movestrategy.MovingStrategy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +13,7 @@ public class Cars {
 
     private List<Car> cars;
 
-    public Cars(String[] carNames) {
+    public Cars(List<String> carNames) {
         initCar(carNames);
     }
 
@@ -45,7 +44,7 @@ public class Cars {
         return cars.get(index);
     }
 
-    private void initCar(String[] carNames) throws IllegalArgumentException {
+    private void initCar(List<String> carNames) throws IllegalArgumentException {
         validateDuplication(carNames);
 
         cars = new ArrayList<>();
@@ -55,10 +54,10 @@ public class Cars {
         }
     }
 
-    private void validateDuplication(String[] carNames) {
-        HashSet<String> hashSet = new HashSet<>(Arrays.asList(carNames));
+    private void validateDuplication(List<String> carNames) {
+        HashSet<String> hashSet = new HashSet<>(carNames);
 
-        if (hashSet.size() < carNames.length) {
+        if (hashSet.size() < carNames.size()) {
             throw new IllegalArgumentException("[ERROR] 자동차 이름이 중복되면 안됩니다.");
         }
     }
